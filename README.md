@@ -3,6 +3,10 @@
 Simple version of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 with a Java Swing user interface.
 
+## Demo
+
+![Demo GIF animation](/videos/GameOfLife2.gif)
+
 ## Purpose
 
 This software is for demonstration and training purposes. 
