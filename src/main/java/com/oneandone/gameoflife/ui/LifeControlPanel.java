@@ -19,7 +19,6 @@ import com.oneandone.gameoflife.Field;
 import com.oneandone.gameoflife.GameOfLife;
 import com.oneandone.gameoflife.LifeControl;
 import com.oneandone.gameoflife.LifeRunnable;
-import java.awt.Dimension;
 import java.util.Random;
 import javax.swing.SwingUtilities;
 import lombok.Getter;
@@ -230,12 +229,7 @@ public class LifeControlPanel extends javax.swing.JPanel {
     private void jButtonRandomInitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRandomInitActionPerformed
         Random r = new Random();
         Field field = gameOfLife.getActiveField();
-        Dimension dim = field.getDimensions();
-        for (int y = 0; y < dim.height; y++) {
-            for (int x = 0; x < dim.width; x++) {
-                field.set(x, y, r.nextBoolean());
-            }
-        }
+        field.set(() -> r.nextBoolean());
         gameOfLife.setIteration(0);
         jTextFieldIteration.setText("0");
         lifeContentCanvas.repaint();
@@ -243,12 +237,7 @@ public class LifeControlPanel extends javax.swing.JPanel {
 
     private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
         Field field = gameOfLife.getActiveField();
-        Dimension dim = field.getDimensions();
-        for (int y = 0; y < dim.height; y++) {
-            for (int x = 0; x < dim.width; x++) {
-                field.set(x, y, false);
-            }
-        }
+        field.set(() -> false);
         gameOfLife.setIteration(0);
         jTextFieldIteration.setText("0");
         lifeContentCanvas.repaint();

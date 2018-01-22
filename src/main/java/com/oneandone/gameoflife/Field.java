@@ -16,6 +16,7 @@
 package com.oneandone.gameoflife;
 
 import java.awt.Dimension;
+import java.util.function.BooleanSupplier;
 
 /**
  * One generation of a rectangular two-dimensional life world.
@@ -53,6 +54,20 @@ public interface Field {
      * {@code false} if the cell is dead.
      */
     public void set(int x, int y, boolean set);
+    
+    
+    /** Set the status of all cells.
+     * @param supplier the supplier for destination values.
+     * Iteration order is left to right and row by row.
+     */
+    public default void set(BooleanSupplier supplier) {
+        Dimension dim = getDimensions();
+        for (int y = 0; y < dim.height; y++) {
+            for (int x = 0; x < dim.width; x++) {
+                set(x, y, supplier.getAsBoolean());
+            }
+        }
+    }
     
     /** Get the dimensions of the field.
      * @return a dimension object with the width and height of the Field
