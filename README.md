@@ -18,6 +18,16 @@ The code has the following features:
 * Current generation can be modified using mouse clicks.
 * Visual animation of life area.
 
+## Building & running
+
+Building is done with
+
+    mvn clean package
+   
+after that you have a JAR archive you can execute with
+
+    java -jar target/gameoflife-*-jar-with-dependencies.jar
+
 ## License
 
 Copyright 2018 1&1 Internet SE
