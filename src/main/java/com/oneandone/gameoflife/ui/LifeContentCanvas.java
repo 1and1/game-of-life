@@ -100,7 +100,7 @@ public class LifeContentCanvas extends JPanel {
         aliveColor = Color.WHITE;
         deadColor = Color.BLACK;
         
-        addMouseListener(mouseListener);
+        super.addMouseListener(mouseListener);
     }
     
     /** Sets the rendered field to the given instance and repaints
