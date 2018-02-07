@@ -40,8 +40,8 @@ public class GameOfLife {
 
     public GameOfLife() {
         fields = new Field[2];
-        fields[0] = new BooleanFieldImpl(Field.FIELD_SIZE_DEFAULT, Field.FIELD_SIZE_DEFAULT);
-        fields[1] = new BooleanFieldImpl(Field.FIELD_SIZE_DEFAULT, Field.FIELD_SIZE_DEFAULT);
+        fields[0] = new IntFieldImpl(Field.FIELD_SIZE_DEFAULT, Field.FIELD_SIZE_DEFAULT);
+        fields[1] = new IntFieldImpl(Field.FIELD_SIZE_DEFAULT, Field.FIELD_SIZE_DEFAULT);
     }
     
     /** Sets the size of the field. 
@@ -59,7 +59,7 @@ public class GameOfLife {
         
         if (needChange) {
             for (int i = 0; i < fields.length; i++) {
-                Field newField = new BooleanFieldImpl(width, height);
+                Field newField = new IntFieldImpl(width, height);
                 fields[i].copyTo(newField);
                 fields[i] = newField;
             }
