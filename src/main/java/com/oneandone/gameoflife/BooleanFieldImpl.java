@@ -21,7 +21,7 @@ import java.awt.Dimension;
  * Implementation of a field using a boolean array.
  * @author Stephan Fuhrmann
  */
-public class FieldImpl implements Field {
+public class BooleanFieldImpl implements Field {
 
     /** The cell status. First dimension is width, second dimension is height.
      */
@@ -41,7 +41,7 @@ public class FieldImpl implements Field {
      * @param width the width in cells.
      * @param height the height in cells.
      */
-    public FieldImpl(int width, int height) {
+    public BooleanFieldImpl(int width, int height) {
         if (width <= 0) {
             throw new IllegalArgumentException("width <= 0");
         }
@@ -91,32 +91,9 @@ public class FieldImpl implements Field {
         }
         return sum;
     }
-
-    @Override
-    public void copyTo(Field other) {
-        Dimension otherDimension = other.getDimensions();
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                if (other.isLegalCoordinates(otherDimension, x, y)) {
-                    other.set(x, y, get(x, y));
-                }
-            }
-        }
-    }
     
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                char c = '0';
-                if (get(x, y)) {
-                    c = '1';
-                }
-                sb.append(c);
-            }
-            sb.append("\n");
-        }
-        return sb.toString();
+        return toStringDefault();
     }
 }

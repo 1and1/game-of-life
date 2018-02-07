@@ -16,7 +16,7 @@
 package com.oneandone.gameoflife.ui;
 
 import com.oneandone.gameoflife.Field;
-import com.oneandone.gameoflife.FieldImpl;
+import com.oneandone.gameoflife.BooleanFieldImpl;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -92,7 +92,7 @@ public class LifeContentCanvas extends JPanel {
         };
     
     public LifeContentCanvas() {
-        this(new FieldImpl(10, 10));
+        this(new BooleanFieldImpl(10, 10));
     }
     
     public LifeContentCanvas(Field field) {

@@ -22,11 +22,12 @@ import static org.junit.Assert.*;
  * Test for FieldImpl.
  * @author stephan
  */
-public class FieldImplTest {
+public abstract class AbstractFieldImplTest {
 
+    protected abstract Field newField(int width, int height);    
     @Test
     public void testGet() {
-        FieldImpl fieldImpl = new FieldImpl(10, 10);
+        Field fieldImpl = newField(10, 10);
         boolean state;
         state = fieldImpl.get(0, 0);
         assertEquals(false, state);
@@ -38,7 +39,7 @@ public class FieldImplTest {
     
     @Test
     public void testSet() {
-        FieldImpl fieldImpl = new FieldImpl(10, 10);
+        Field fieldImpl = newField(10, 10);
         boolean state;
         state = fieldImpl.get(0, 0);
         assertEquals(false, state);
@@ -61,7 +62,7 @@ public class FieldImplTest {
         
     @Test
     public void testGetNeighborCountWithEmpty() {
-        FieldImpl fieldImpl = new FieldImpl(10, 10);
+        Field fieldImpl = newField(10, 10);
         int count;
         count = fieldImpl.getNeighborCount(0, 0);
         assertEquals(0, count);
@@ -69,7 +70,7 @@ public class FieldImplTest {
     
     @Test
     public void testGetNeighborCountWithSelf() {
-        FieldImpl fieldImpl = new FieldImpl(10, 10);
+        Field fieldImpl = newField(10, 10);
         int count;
         fieldImpl.set(0, 0, true); 
         count = fieldImpl.getNeighborCount(0, 0);
@@ -79,7 +80,7 @@ public class FieldImplTest {
     
     @Test
     public void testGetNeighborCountWithUpperLeftAndRightSet() {
-        FieldImpl fieldImpl = new FieldImpl(10, 10);
+        Field fieldImpl = newField(10, 10);
         int count;
         fieldImpl.set(1, 0, true); 
         count = fieldImpl.getNeighborCount(0, 0);
@@ -89,7 +90,7 @@ public class FieldImplTest {
     
     @Test
     public void testGetNeighborCountWithUpperLeftAndBottomSet() {
-        FieldImpl fieldImpl = new FieldImpl(10, 10);
+        Field fieldImpl = newField(10, 10);
         int count;
         fieldImpl.set(0, 1, true); 
         count = fieldImpl.getNeighborCount(0, 0);
@@ -99,7 +100,7 @@ public class FieldImplTest {
     
     @Test
     public void testGetNeighborCountUpperLeftAndAllSet() {
-        FieldImpl fieldImpl = new FieldImpl(10, 10);
+        Field fieldImpl = newField(10, 10);
         int count;
         fieldImpl.set(0, 1, true); 
         fieldImpl.set(1, 1, true); 
@@ -111,7 +112,7 @@ public class FieldImplTest {
     
     @Test
     public void testGetNeighborCountCenterAndAllSet() {
-        FieldImpl fieldImpl = new FieldImpl(10, 10);
+        Field fieldImpl = newField(10, 10);
         int count;
         
         fieldImpl.set(4, 4, true); 
@@ -133,7 +134,7 @@ public class FieldImplTest {
     
     @Test
     public void testToString() {
-        FieldImpl fieldImpl = new FieldImpl(3, 3);
+        Field fieldImpl = newField(3, 3);
 
         fieldImpl.set(0, 1, true); 
         fieldImpl.set(1, 1, true); 
@@ -149,13 +150,13 @@ public class FieldImplTest {
     
     @Test
     public void testCopyToWithSmallerTarget() {
-        FieldImpl fieldImpl = new FieldImpl(3, 3);
+        Field fieldImpl = newField(3, 3);
 
         fieldImpl.set(0, 1, true); 
         fieldImpl.set(1, 1, true); 
         fieldImpl.set(1, 0, true);
         
-        FieldImpl copy = new FieldImpl(2, 2);
+        Field copy = newField(2, 2);
 
         fieldImpl.copyTo(copy);
         
@@ -168,13 +169,13 @@ public class FieldImplTest {
     
     @Test
     public void testCopyToWithBiggerTarget() {
-        FieldImpl fieldImpl = new FieldImpl(3, 3);
+        Field fieldImpl = newField(3, 3);
 
         fieldImpl.set(0, 1, true); 
         fieldImpl.set(1, 1, true); 
         fieldImpl.set(1, 0, true);
         
-        FieldImpl copy = new FieldImpl(3, 4);
+        Field copy = newField(3, 4);
 
         fieldImpl.copyTo(copy);
         

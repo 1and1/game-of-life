@@ -26,11 +26,6 @@ public interface Field {
     /** The default dimension of a world. */
     public final int FIELD_SIZE_DEFAULT = 10;
     
-    /** Copy content to a field with possibly other dimensions.
-     * @param target the field to copy to.
-     */
-    public void copyTo(Field target);
-    
     /** Get the number of alive neighbors. There are 8 neighors maximum starting at upper left and ending at
      * lower right. The neighors at the border are counted as being dead. 
      * @param x the x coordinate of the reference cell.
@@ -95,5 +90,40 @@ public interface Field {
     default boolean isLegalCoordinates(int x, int y) {
         Dimension dimension = getDimensions();
         return x >= 0 && y >= 0 && x < dimension.width && y < dimension.height;
+    }
+    
+    /** Copy content to a field with possibly other dimensions.
+     * @param target the field to copy to.
+     */
+    default void copyTo(Field other) {
+        Dimension dimension = getDimensions();
+        Dimension otherDimension = other.getDimensions();
+        for (int y = 0; y < dimension.height; y++) {
+            for (int x = 0; x < dimension.width; x++) {
+                if (other.isLegalCoordinates(otherDimension, x, y)) {
+                    other.set(x, y, get(x, y));
+                }
+            }
+        }
+    }
+    
+    /** Convert the field to a String. Will put each row in a linefeed terminated
+     * row. 
+     * @return linefeed terminated rows with alive cells written as a '1' and dead cells with '0'.
+     */
+    default String toStringDefault() {
+        Dimension dimension = getDimensions();
+        StringBuilder sb = new StringBuilder();
+        for (int y = 0; y < dimension.height; y++) {
+            for (int x = 0; x < dimension.width; x++) {
+                char c = '0';
+                if (get(x, y)) {
+                    c = '1';
+                }
+                sb.append(c);
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 }
