@@ -95,13 +95,13 @@ public interface Field {
     /** Copy content to a field with possibly other dimensions.
      * @param target the field to copy to.
      */
-    default void copyTo(Field other) {
+    default void copyTo(Field target) {
         Dimension dimension = getDimensions();
-        Dimension otherDimension = other.getDimensions();
+        Dimension otherDimension = target.getDimensions();
         for (int y = 0; y < dimension.height; y++) {
             for (int x = 0; x < dimension.width; x++) {
-                if (other.isLegalCoordinates(otherDimension, x, y)) {
-                    other.set(x, y, get(x, y));
+                if (target.isLegalCoordinates(otherDimension, x, y)) {
+                    target.set(x, y, get(x, y));
                 }
             }
         }

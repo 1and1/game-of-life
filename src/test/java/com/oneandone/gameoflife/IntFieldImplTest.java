@@ -16,8 +16,8 @@
 package com.oneandone.gameoflife;
 
 /**
- * Test for FieldImpl.
- * @author stephan
+ * Test for IntFieldImpl.
+ * @author Stephan Fuhrmann
  */
 public class IntFieldImplTest {
 

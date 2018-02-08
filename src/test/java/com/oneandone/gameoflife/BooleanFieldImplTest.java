@@ -17,7 +17,7 @@ package com.oneandone.gameoflife;
 
 /**
  * Test for BooleanFieldImpl.
- * @author stephan
+ * @author Stephan Fuhrmann
  */
 public class BooleanFieldImplTest {
 

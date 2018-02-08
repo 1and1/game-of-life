@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 
 /**
  * Test for FieldImpl.
- * @author stephan
+ * @author Stephan Fuhrmann
  */
 public abstract class AbstractFieldImplTest {
 

@@ -16,7 +16,6 @@
 package com.oneandone.gameoflife.ui;
 
 import com.oneandone.gameoflife.Field;
-import com.oneandone.gameoflife.BooleanFieldImpl;
 import com.oneandone.gameoflife.IntFieldImpl;
 import java.awt.Color;
 import java.awt.Dimension;
