@@ -15,9 +15,6 @@
  */
 package com.oneandone.gameoflife;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
-
 /**
  * Test for FieldImpl.
  * @author stephan
@@ -26,6 +23,5 @@ public class IntFieldImplTest {
 
     protected Field newField(int width, int height) {
         return new IntFieldImpl(width, height);
-    }   
-
+    }
 }
