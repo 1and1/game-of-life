@@ -15,12 +15,12 @@
  */
 package com.oneandone.gameoflife.ui;
 
+import java.util.Random;
+import javax.swing.SwingUtilities;
 import com.oneandone.gameoflife.Field;
 import com.oneandone.gameoflife.GameOfLife;
 import com.oneandone.gameoflife.LifeControl;
 import com.oneandone.gameoflife.LifeRunnable;
-import java.util.Random;
-import javax.swing.SwingUtilities;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -100,7 +100,7 @@ public class LifeControlPanel extends javax.swing.JPanel {
         jTextFieldIteration.setText("0");
 
         jFormattedTextFieldDelay.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        jFormattedTextFieldDelay.setText("0,2");
+        jFormattedTextFieldDelay.setText("0.2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

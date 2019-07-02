@@ -17,6 +17,8 @@ package com.oneandone.gameoflife;
 
 import com.oneandone.gameoflife.ui.LifeFrame;
 import java.io.IOException;
+import java.util.Locale;
+
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -31,7 +33,7 @@ public class Main {
         if (params == null) {
             return;
         }
-        
+        Locale.setDefault(new Locale("en"));
         LifeFrame lifeFrame = new LifeFrame();
         lifeFrame.setSize(640, 480);
         lifeFrame.pack();
