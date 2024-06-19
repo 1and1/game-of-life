@@ -5,6 +5,8 @@
 [![ReleaseDate](https://img.shields.io/github/release-date/1and1/game-of-life)](https://github.com/1and1/game-of-life/releases)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
+*This project has been set to read-only since there is no longer an active maintainer in the organization.*
+
 Simple version of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 with a Java Swing user interface.
 
